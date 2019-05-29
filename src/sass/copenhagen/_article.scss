@@ -38,6 +38,10 @@
     margin-top: 20px;
   }
 
+  &-avatar {
+    margin-right: 10px;
+  }
+
   &-author {
     margin-bottom: 10px;
   }
@@ -68,7 +72,6 @@
 
   &-meta {
     display: inline-block;
-    margin-left: 10px;
     vertical-align: middle;
   }
 
@@ -132,12 +135,14 @@
     padding: 20px 0;
 
     > * {
-      flex: 1 0 auto; //Explicit values needed whith flex-direction: column for IE11
+      flex: 1 0 50%; //Explicit values needed whith flex-direction: column for IE11
+      min-width: 50%;
+      overflow-wrap: break-word;
       margin-right: 0;
 
-      &:last-child { margin: 0; }
+      &:last-child { padding: 0; }
 
-      @include tablet { margin-right: 20px; }
+      @include tablet { padding-right: 20px; }
     }
   }
 

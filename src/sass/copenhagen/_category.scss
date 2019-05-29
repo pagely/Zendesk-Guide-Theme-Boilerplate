@@ -26,10 +26,6 @@
     flex: initial;
   }
 
-  .icon-lock::before {
-    vertical-align: baseline;
-  }
-
   &-title {
     margin-bottom: 0;
 
@@ -44,11 +40,14 @@
 
 .article-list {
   &-item {
-    border-bottom: 1px solid $border-color;
     font-size: $font-size-bigger;
     padding: 15px 0;
 
     a { color: $text_color; }
+
+    .icon-lock::before {
+      vertical-align: baseline;
+    }
   }
 }
 

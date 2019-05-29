@@ -48,6 +48,12 @@
   }
 }
 
+.form-field .hc-multiselect-toggle:focus {
+  outline: none;
+  border: 1px solid $brand_color;
+  text-decoration: none;
+}
+
 .form-field textarea {
   vertical-align: middle;
 }
@@ -62,6 +68,11 @@
   margin-left: 2px;
 }
 
+.form-field .optional {
+  color: $secondary-text-color;
+  margin-left: 4px;
+}
+
 .form-field p {
   color: $secondary-text-color;
   font-size: 12px;
@@ -70,7 +81,7 @@
 
 [data-loading="true"] input,
 [data-loading="true"] textarea {
-  background: transparent url(unquote("$assets-loader-gif")) 99% 50% no-repeat;
+  background: transparent url($assets-loader-gif) 99% 50% no-repeat;
   background-size: 16px 16px;
 }
 
