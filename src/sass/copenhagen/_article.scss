@@ -1,5 +1,6 @@
 /***** Article *****/
 .article {
+  margin-bottom: 6rem;
   /*
   * The article grid is defined this way to optimize readability:
   * Sidebar | Content | Free space
@@ -110,7 +111,7 @@
   }
 
   h1,h2 {
-    margin-left: -1rem;
+    margin: 0;
   }
   &-footer {
     align-items: center;

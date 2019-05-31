@@ -1,4 +1,4 @@
-<div class="bc_search_nav bg-gray-lightest">
+<div class="bc_search_nav bg-gray-lightest mb-5">
   <div class="container py-2">
     <nav class="sub-nav mb-0 pb-0">
       {{breadcrumbs}}
@@ -6,10 +6,8 @@
     </nav>
   </div>
 </div>
-<div class="container-divider"></div>
 
-<div class="container">
-
+<div class="container py-3">
   <div class="row">
     <div class="col-3 col-lg-3 d-none d-md-block">
       <h3><i class="ion-ios-folder-outline"></i> Main Topics</h3>
@@ -17,15 +15,14 @@
     </div>
     <div class="col-12 col-md-9">
       <div class="section-tree">
-        <header class="page-header mt-0">
-          <em>Topic:</em>
+        <header class="page-header mt-0 p-2">
           <h2>{{category.name}}</h2>
           {{#if category.description}}
             <p class="page-header-description">{{category.description}}</p>
           {{/if}}
         </header>
         {{#each sections}}
-          <section class="section w-100">
+          <section class="section w-100 p-2">
             <h2 class="section-tree-title mb-0">
               <a href="{{url}}">{{name}} <small><i class="ion-ios-arrow-right"></i></small></a>
             </h2>
