@@ -1,6 +1,6 @@
 /***** Section pages *****/
 .section {
-  &-container {
+  /*&-container {
     display: flex;
     justify-content: flex-end;
   }
@@ -10,8 +10,9 @@
       flex: 0 0 80%;
     }
     flex: 1;
-  }
 
+  }
+  */
   &-subscribe {
     .dropdown-toggle::after {
       display: none;
@@ -33,7 +34,7 @@
   padding: 15px 0;
 
   &:first-child {
-    border-top: 1px solid $border-color;
+    border-top: 1px solid red;
   }
 
   a {

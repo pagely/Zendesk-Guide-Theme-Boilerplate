@@ -1,10 +1,13 @@
+<div class="bc_search_nav">
+  <div class="container py-2">
+    <nav class="sub-nav mb-0 pb-0">
+      {{breadcrumbs}}
+      {{search submit=false}}
+    </nav>
+  </div>
+</div>
 <div class="container-divider"></div>
 <div class="container">
-  <nav class="sub-nav">
-    {{breadcrumbs}}
-    {{search submit=false}}
-  </nav>
-
   <header class="page-header">
     <h1>{{t 'search_results'}}</h1>
     <p class="page-header-description">{{t 'results' query=query count=results_count}}</p>
@@ -104,4 +107,5 @@
   </div>
 
   {{pagination}}
+</div>
 </div>

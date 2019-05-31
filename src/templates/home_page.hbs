@@ -1,11 +1,95 @@
 <section class="section hero">
   <div class="hero-inner">
+    <h1>Pagely<sup>&reg;</sup> Support Docs</h1>
     {{search submit=false instant=settings.instant_search class='search search-full'}}
   </div>
 </section>
 
 <div class="container">
+  <div class="d-flex justify-content-start align-items-stretch flex-wrap row">
+    {{#each categories}}
+    <div class="col-12 col-md-4 mb-5">
+      <div class="border-bottom pb-3 h-100">
+        <header class="d-flex mb-2 align-items-center">
+          <h2 class="mb-0"><a href="{{url}}">{{name}}</a></h2>
+          <small class="ml-auto badge">{{sections.length}}</small>
+        </header>
+
+        <ul class="list-unstyled p-2 section_list">
+        {{#each sections}}
+          <li class="mb-1">
+            <a href="{{url}}">{{name}}</a>
+        	</li>
+        {{/each}}
+        </ul>
+      </div>
+    </div>
+    {{/each}}
+    {{pagination}}
+  </div>
+</div>
+
+<div class="container">
+  <div class="d-flex justify-content-start flex-wrap row">
+
+    {{#if promoted_articles}}
+      <div class="col-12 col-md-4 promoted-articles">
+        <h3>{{t 'promoted_articles'}}</h3>
+        <ul class="">
+          {{#each promoted_articles}}
+            <li class="">
+                <a href="{{url}}">
+                  <i data-title="{{t 'promoted'}}" class="ion ion-ios-star-outline green"></i> {{title}}
+
+                  {{#if internal}}
+                    <span class="icon-lock" title="{{t 'internal'}}"></span>
+                  {{/if}}
+                </a>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/if}}
+    <div class="col-12 col-md-4">
+      {{#if settings.show_recent_activity}}
+        {{recent_activity}}
+      {{/if}}
+    </div>
+
+    <div class="col-12 col-md-4">
+      <a class="twitter-timeline"  href="https://twitter.com/pagelysupport" data-widget-id="674709759153405952">Tweets by @pagelysupport</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+  </div>
+<!--
+<div class="container">
+    {{#if promoted_articles}}
+      <section class="articles">
+        <h3>{{t 'promoted_articles'}}</h3>
+        <ul class="article-list promoted-articles">
+          {{#each promoted_articles}}
+            <li class="promoted-articles-item">
+                <a href="{{url}}">
+                  {{title}}
+
+                  {{#if internal}}
+                    <span class="icon-lock" title="{{t 'internal'}}"></span>
+                  {{/if}}
+                </a>
+            </li>
+          {{/each}}
+        </ul>
+      </section>
+    {{/if}}
+    <section class="section activity">
+      {{#if settings.show_recent_activity}}
+        {{recent_activity}}
+      {{/if}}
+    </section>
+  </div>
+
   <section class="section knowledge-base">
+
     <section class="categories blocks">
       <ul class="blocks-list">
         {{#each categories}}
@@ -70,3 +154,4 @@
     {{/if}}
   </section>
 </div>
+-->

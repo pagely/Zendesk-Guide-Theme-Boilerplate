@@ -8,13 +8,13 @@
         <img class="user-avatar" src="{{user.avatar_url}}" alt=""/>
       </div>
       <div class="basic-info">
-        <h1 class="name">
+        <h2 class="name">
           {{#if user.url}}
             <a href="{{user.url}}" target="_zendesk_lotus" title="{{t 'open_user_in_support'}}">{{user.name}}</a>
           {{else}}
             {{user.name}}
           {{/if}}
-        </h1>
+        </h2>
       </div>
       <div class="options">
         {{#if private_profile}}

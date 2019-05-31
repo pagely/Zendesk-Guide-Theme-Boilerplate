@@ -21,18 +21,20 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading_font;
-  font-weight: $font-weight-base;
+  font-weight: $font-weight-semibold;
   margin-top: 0;
+  text-transform: uppercase;
+  color: $gray-900;
 }
 
-h1 { font-size: 32px; }
-h2 { font-size: 22px; }
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.6rem; }
 h3 {
-  font-size: 18px;
+  font-size: 1.2rem;
   font-weight: $font-weight-semibold;
 }
 
-h4 { font-size: 16px; }
+h4 { font-size: 1.1rem; }
 
 a {
   color: $link_color;

@@ -59,8 +59,9 @@ gulp.task('zip', function() {
 });
 
 gulp.task('watch', () => {
-    gulp.watch('./src/templates/*.hbs', ['build-templates']);
     gulp.watch('./src/sass/**/*.scss', ['build-sass']);
+    gulp.watch('./src/templates/*.hbs', ['build-templates']);
+    gulp.watch('./src/partials/*.hbs', ['build-templates']);
     gulp.watch('./src/js/**', ['build-js'])
 });
 

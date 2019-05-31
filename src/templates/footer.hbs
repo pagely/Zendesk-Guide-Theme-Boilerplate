@@ -1,22 +1,48 @@
+<script>
+var d = new Date();
+$('span.year').html(d.getFullYear());
+console.log(d.getFullYear());
+</script>
 <footer class="footer">
-  <div class="footer-inner">
-    {{#link 'help_center'}}{{help_center.name}}{{/link}}
+  <div class="footer-inner pt-4">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <img src="{{asset 'pagely-full-white.svg'}}" alt="pagely" class="footer_logo"/>
+        <p>Pagely is the Managed WordPress Hosting Platform designed to exceed the needs of media, business, and Enterprise customers alike. We help the world's biggest brands scale WordPress.</p>
+        <p><small>Copyright © 2006-<span id="cyear">2019</span> Pagely, Inc. All rights reserved.<br/>
+          Pagely&reg; is registered trademark.</small></p>
+          <script>
+            document.getElementById("cyear").innerHTML = new Date().getFullYear();
+          </script>
+      </div>
+      <div class="col-12 col-md-4 ml-auto">
+        <h4>Information</h4>
+        <nav>
+          <ul>
+            <li><a href="https://pagely.com/">Main Site</a></li>
+            <li><a href="https://atomic.pagely.com/">Atomic Login</a></li>
+            <li><a href="https://pagely.com/blog/">Blog</a></li>
+            <li><a href="https://pagely.com/legal/privacy-policy/">Privacy</a></li>
 
-    <div class="footer-language-selector">
-      {{#if alternative_locales}}
-        <div class="dropdown language-selector">
-          <button class="dropdown-toggle" aria-haspopup="true">
-            {{current_locale.name}}
-          </button>
-          <span class="dropdown-menu dropdown-menu-end" role="menu">
-            {{#each alternative_locales}}
-              <a href="{{url}}" dir="{{direction}}" rel="nofollow" role="menuitem">
-                {{name}}
-              </a>
-            {{/each}}
-          </span>
+          </ul>
+        </nav>
+        <div class="footer-language-selector">
+          {{#if alternative_locales}}
+            <div class="dropdown language-selector">
+              <button class="dropdown-toggle" aria-haspopup="true">
+                {{current_locale.name}}
+              </button>
+              <span class="dropdown-menu dropdown-menu-end" role="menu">
+                {{#each alternative_locales}}
+                  <a href="{{url}}" dir="{{direction}}" rel="nofollow" role="menuitem">
+                    {{name}}
+                  </a>
+                {{/each}}
+              </span>
+            </div>
+          {{/if}}
         </div>
-      {{/if}}
+      </div>
     </div>
   </div>
 </footer>

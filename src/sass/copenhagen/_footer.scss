@@ -3,8 +3,10 @@
   border-top: 1px solid $border-color;
   margin-top: 60px;
   padding: 30px 0;
+  background: $brand_color;
+  color: #fff;
 
-  a { color: $secondary-text-color; }
+  a { color: white; }
 
   &-inner {
     @include max-width-container;
@@ -16,5 +18,17 @@
     color: $secondary-text-color;
     display: inline-block;
     font-weight: $font-weight-light;
+  }
+
+  .footer_logo {
+    max-width: 300px;
+  }
+
+  h4 {
+    color: white;
+  }
+
+  ul {
+    text-transform: uppercase;
   }
 }

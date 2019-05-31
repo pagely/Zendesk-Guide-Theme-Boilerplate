@@ -31,6 +31,10 @@
 
 .search-result {
 
+  &-link {
+    font-size: $font-size-bigger;
+    font-weight: bold;
+  }
   &-description {
     margin-top: 15px;
     word-break: break-word;

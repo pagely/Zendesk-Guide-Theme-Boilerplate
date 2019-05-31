@@ -12,7 +12,13 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader'
             }
-        ]
+        ],
+	rules: [
+    	{
+      		test: /\.css$/,
+      		use: ['style-loader', 'css-loader']
+    	}
+  	]
     },
     plugins: []
 };

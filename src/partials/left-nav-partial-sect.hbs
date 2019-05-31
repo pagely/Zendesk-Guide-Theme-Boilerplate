@@ -1,0 +1,29 @@
+<!--<h3>Pagely<sup>&reg;</sup> Support Docs</h3>-->
+<div class="left-nav">
+  <ul class="flex-column nav"></ul>
+</div>
+
+<script type="text/javascript">
+var catID = $('.breadcrumbs li:nth-child(2) a').attr('href').match(/[0-9]+/);
+var the_cat_id = Number(catID[0]);
+ $.getJSON('/api/v2/help_center/en-us/categories.json', function(data){
+   //console.log(data.categories);
+   //console.log(catID[0]);
+   var output = "";
+   var active  = "";
+   //console.log(section);
+
+   $.each(data.categories, function(idx, itm){
+     if (the_cat_id == itm.id) {
+       active = "active";
+     } else {
+       active = "";
+     }
+     //console.log(the_cat_id, itm.id);
+     output += '<li class="nav-item '+active+'">';
+     output += '<a class="nav-link d-flex" id="cat'+itm.id+'" href="'+itm.html_url+'">'+itm.name+' <i class="ion-icon ion-ios-arrow-right ml-auto"></i></a>';
+     output += '</li>';
+   });
+   $('.left-nav .flex-column').append(output);
+  });
+</script>

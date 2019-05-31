@@ -67,25 +67,27 @@
   a:visited { color: $visited-link-color; }
 
   code {
-    background: $primary-shade;
-    border: 1px solid $border-color;
+    background: $gray-100;
+    border: 1px solid $gray-100;
+    color: $pink;
     border-radius: 3px;
     padding: 0 5px;
     margin: 0 2px;
   }
 
   pre {
-    background: $primary-shade;
-    border: 1px solid $border-color;
+    background: $gray-100;
+    border: 1px solid $gray-100;
     border-radius: 3px;
     padding: 10px 15px;
     overflow: auto;
     white-space: pre;
+    color: $pink;
   }
 
   blockquote {
-    border-left: 1px solid $border-color;
-    color: $secondary-text-color;
+    border-left: 1px solid $gray-100;
+    color: $text_color;
     font-style: italic;
     padding: 0 15px;
   }

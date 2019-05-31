@@ -1,39 +1,58 @@
+<div class="bc_search_nav bg-gray-lightest">
+  <div class="container py-2">
+    <nav class="sub-nav mb-0 pb-0">
+      {{breadcrumbs}}
+      {{search submit=false}}
+    </nav>
+  </div>
+</div>
 <div class="container-divider"></div>
-<div class="container">
-  <nav class="sub-nav">
-    {{breadcrumbs}}
-    {{search scoped=settings.scoped_kb_search submit=false}}
-  </nav>
 
+<div class="container">
   <div class="article-container" id="article-container">
-    <section class="article-sidebar">
-      {{#if settings.show_articles_in_section}}
-        <section class="section-articles collapsible-sidebar">
-        <h3 class="collapsible-sidebar-title sidenav-title">{{t 'articles_in_section'}}</h3>
-        <ul>
-          {{#each section.articles}}
-            <li>
-              <a href="{{url}}" class="sidenav-item {{#is id ../article.id}}current-article{{/is}}">{{title}}</a>
-            </li>
-          {{/each}}
-        </ul>
-        {{#if section.more_articles}}
-          <a href="{{section.url}}" class="article-sidebar-item">{{t 'see_more'}}</a>
-        {{/if}}
-        </section>
-      {{/if}}
-    </section>
+    <div class="row">
+      <div class="col-3 col-lg-3">
+        <div class="mb-2 d-none d-lg-block">
+          <h3><i class="ion-ios-folder-outline"></i> Main Topics</h3>
+          <include src="left-nav-partial-sect.hbs"></include>
+          {{#if settings.show_articles_in_section}}
+            <section class="section-articles mt-4 border-top pt-3">
+            <h3 class="sidenav-title"><i class="ion-ios-arrow-right"></i> In this section</h3>
+            <ul>
+              {{#each section.articles}}
+                <li>
+                  <a href="{{url}}" class="{{#is id ../article.id}}current-article{{/is}}">{{title}}</a>
+                </li>
+              {{/each}}
+            </ul>
+            {{#if section.more_articles}}
+              <a href="{{section.url}}" class="article-sidebar-item">{{t 'see_more'}}</a>
+            {{/if}}
+            <div class="mt-3">
+            {{#if settings.show_related_articles}}
+              {{related_articles}}
+              <script type="text/x-javascript">
+              $('.related-articles h3').prepend('<i class="ion-ios-arrow-down"></i> ');
+              </script>
+            {{/if}}
+            </div>
+            </section>
+          {{/if}}
+        </div>
+      </div>
+      <div class="col-12 col-lg-9">
 
     <article class="article">
       <header class="article-header">
-        <h1 title="{{article.title}}" class="article-title">
+        <h1 title="{{article.title}}" class="article-title p-3 bg-gray-lightest">
           {{article.title}}
+
           {{#if article.internal}}
             <span class="icon-lock" title="{{t 'internal'}}"></span>
           {{/if}}
         </h1>
 
-        <div class="article-author">
+        <div class="article-author d-flex flex-wrap">
           {{#if settings.show_article_author}}
             <div class="avatar article-avatar">
               {{#if article.author.agent}}
@@ -53,16 +72,17 @@
               {{#is article.created_at article.edited_at}}
                 <li class="meta-data">{{date article.created_at timeago=true}}</li>
               {{else}}
-                <li class="meta-data">{{date article.edited_at timeago=true}}</li>
                 <li class="meta-data">{{t 'updated'}}</li>
+                <li class="meta-data">{{date article.edited_at timeago=true}}</li>
               {{/is}}
             </ul>
           </div>
+          <div class="ml-auto">
+          {{#if settings.show_follow_article}}
+            {{subscribe}}
+          {{/if}}
+          </div>
         </div>
-
-        {{#if settings.show_follow_article}}
-          {{subscribe}}
-        {{/if}}
       </header>
 
       <section class="article-info">
@@ -86,7 +106,7 @@
       </section>
 
       <footer>
-        <div class="article-footer">
+        <div class="article-footer d-flex">
           {{#if settings.show_article_sharing}}
             <div class="article-share">{{share}}</div>
           {{/if}}
@@ -98,19 +118,21 @@
               </a>
             {{/if}}
           {{/if}}
-        </div>
-        {{#with article}}
-          <div class="article-votes">
-            <span class="article-votes-question">{{t 'was_this_article_helpful'}}</span>
-            <div class="article-votes-controls" role='radiogroup'>
-              {{vote 'up' role='radio' class='button article-vote article-vote-up'}}
-              {{vote 'down' role='radio' class='button article-vote article-vote-down'}}
+
+          {{#with article}}
+            <div class="article-votes">
+              <span class="article-votes-question">{{t 'was_this_article_helpful'}}</span>
+              <div class="article-votes-controls" role='radiogroup'>
+                {{vote 'up' role='radio' class='button article-vote article-vote-up'}}
+                {{vote 'down' role='radio' class='button article-vote article-vote-down'}}
+              </div>
+              <small class="article-votes-count">
+                {{vote 'label' class='article-vote-label'}}
+              </small>
             </div>
-            <small class="article-votes-count">
-              {{vote 'label' class='article-vote-label'}}
-            </small>
-          </div>
-        {{/with}}
+          {{/with}}
+        </div>
+
 
         <div class="article-more-questions">
           {{request_callout}}
@@ -228,4 +250,9 @@
       {{/if}}
     </article>
   </div>
+  </div>
 </div>
+
+<script>
+ $('iframe').wrap("<div class='resp-container'></div>").addClass("resp-iframe").removeAttr('width').removeAttr('frameborder').removeAttr('height');
+</script>

@@ -2,51 +2,31 @@
 
 .recent-activity {
   &-header {
-    margin-bottom: 10px;
-    text-align: center;
+    font-size: 1.2rem;
   }
 
   &-list { padding: 0; }
 
   &-item {
-    border-bottom: 1px solid $border-color;
-    overflow: auto;
-    padding: 20px 0;
+
   }
 
   &-item-parent {
-    font-size: $font-size-bigger;
+
   }
 
   &-item-parent,
   &-item-link {
-    @include tablet {
-      width: 70%;
-      margin: 0;
-    }
-
-    margin: 6px 0;
-    color: $text_color;
-    display: inline-block;
-    width: 100%;
+    font-weight: normal;
+    word-wrap: normal;
   }
 
   &-item-link {
-    font-size: 14px;
-    font-weight: $font-weight-light;
+
   }
 
   &-item-meta {
-    @include tablet {
-      margin: 0;
-      float: right;
 
-      [dir="rtl"] & { float: left; }
-
-    }
-
-    margin: 15px 0 0 0;
-    float: none;
   }
 
   &-item-time,
@@ -59,6 +39,7 @@
 
   &-item-comment {
     padding-left: 5px;
+    display:none;
 
     [dir="rtl"] & { padding: 0 5px 0 0; }
 
@@ -83,5 +64,7 @@
 
   &-controls {
     padding-top: 15px;
+    text-align: right;
+    font-size: $font-size-smaller;
   }
 }

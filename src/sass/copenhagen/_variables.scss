@@ -1,41 +1,84 @@
 // Variables
 
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+
 // Colors
-$brand_color: #0072ef !default;
+$brand_color: #1c5673 !default;
 $brand_text_color: #fff !default; //Color for text with an accent color background
-$text_color: #333 !default;
-$link_color: #0072ef !default;
+$text_color: $gray-700 !default;
+$link_color: $brand_color !default;
 $background_color: #fff !default;
+$pink: #b624cc;
+$green: #24cc7d;
 
-$visited-link-color: zass-darken($link_color, 20%);
-$hover-button-color: zass-darken($brand_color, 20%);
-$secondary-text-color: zass-lighten($text_color, 20%);
+$visited-link-color: darken($link_color, 10%);
+$hover-button-color: darken($brand_color, 10%);
+$secondary-text-color: lighten($text_color, 20%);
 
-$primary-shade: zass-darken($background_color, 3%); //#f8f8f8 for the default background_color
-$secondary-shade: zass-darken($background_color, 5%); //#f2f2f2 for the default background_color
+$primary-shade: darken($background_color, 3%); //#f8f8f8 for the default background_color
+$secondary-shade: darken($background_color, 5%); //#f2f2f2 for the default background_color
 
-$font-size-bigger: 16px;
-$font-size-base: 15px;
-$font-size-navigation: 14px;
-$font-size-small: 13px;
-$font-size-smaller: 11px;
+$font-size-bigger: 1.2rem;
+$font-size-base: 16px;
+$font-size-navigation: 1rem;
+$font-size-small: .9rem;
+$font-size-smaller: .8rem;
 
-$border-color: #ddd;
+$border-color: $gray-100;
 
 $button-color: $brand_color;
 
-$input-font-size: 14px;
-$field-text-color: #999;
-$field-text-focus-color: #555;
+$input-font-size: $font-size-small;
+$field-text-color: $brand_color;
+$field-text-focus-color: $gray-900;
 
 // Breakpoints variables
 $tablet-width: 768px;
 $desktop-width: 1024px;
-$max-width-container: 1160px;
+$max-width-container: 1260px;
 
 // Fonts
-$heading_font: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif !default;
-$text_font: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif !default;
+$heading_font: 'Montserrat',-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif !default;
+$text_font: 'Hind',-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif !default;
 $font-weight-base: 400;
 $font-weight-light: 300;
 $font-weight-semibold: 600;
+
+
+
+html {
+  font-size: $font-size-base;
+}
+
+// Shadows
+$z-depth-1:          0 2px 5px 0 rgba(33, 55, 112, 0.16), 0 2px 10px 0 rgba(33, 55, 112, 0.12) !default;
+$z-depth-1-half:     0 5px 11px 0 rgba(33, 55, 112, 0.18), 0 4px 15px 0 rgba(33, 55, 112, 0.15) !default;
+$z-depth-2:          0 8px 17px 0 rgba(33, 55, 112, 0.2), 0 6px 20px 0 rgba(33, 55, 112, 0.19) !default;
+$z-depth-3:          0 12px 15px 0 rgba(33, 55, 112, 0.24), 0 17px 50px 0 rgba(33, 55, 112, 0.19) !default;
+$z-depth-4:          0 16px 28px 0 rgba(33, 55, 112, 0.22), 0 25px 55px 0 rgba(33, 55, 112, 0.21) !default;
+$z-depth-5:          0 27px 24px 0 rgba(33, 55, 112, 0.2), 0 40px 77px 0 rgba(33, 55, 112, 0.22) !default;
+
+.z-depth-1 {
+  box-shadow: $z-depth-1;
+}
+.z-depth-1-half {
+  box-shadow: $z-depth-1-half;
+}
+.z-depth-2 {
+  box-shadow: $z-depth-2;
+}
+.z-depth-3 {
+  box-shadow: $z-depth-3;
+}
+
+.container {
+  max-width: $max-width-container !important;
+}
