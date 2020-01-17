@@ -4,3 +4,4 @@ dist/templates
 dist/style.css
 dist/script.js
 dist/.zat
+.DS_Store

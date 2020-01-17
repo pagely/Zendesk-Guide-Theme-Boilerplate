@@ -1,5 +1,6 @@
 import copenhagen from "./copenhagen";
 import "bootstrap/dist/css/bootstrap-grid.css";
+import "../includes/prism.js";
 // Access config values via _config
 //console.log(_config.category_ticket_field);
 
