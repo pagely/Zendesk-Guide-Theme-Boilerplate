@@ -37,6 +37,8 @@
 }
 
 @mixin content-body {
+  font-size: 1.2em;
+
   img {
     height: auto;
     max-width: 100%;
