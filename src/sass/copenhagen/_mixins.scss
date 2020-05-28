@@ -37,7 +37,7 @@
 }
 
 @mixin content-body {
-  font-size: 1.2em;
+  font-size: $font-size-bigger;
 
   img {
     height: auto;

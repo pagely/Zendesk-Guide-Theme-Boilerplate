@@ -19,22 +19,33 @@ body {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $heading_font;
   font-weight: $font-weight-semibold;
   margin-top: 0;
-  text-transform: uppercase;
-  color: $gray-900;
+  color: $gray-800;
 }
 
-h1 { font-size: 2.4rem; }
-h2 { font-size: 1.6rem; }
+h1 {
+  font-size: 2.4rem;
+}
+h2 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
 h3 {
   font-size: 1.2rem;
   font-weight: $font-weight-semibold;
 }
 
-h4 { font-size: 1.1rem; }
+h4 {
+  font-size: 1.1rem;
+}
 
 a {
   color: $link_color;
@@ -58,7 +69,7 @@ input {
   max-width: 100%;
   box-sizing: border-box;
   outline: none;
-  transition: border .12s ease-in-out;
+  transition: border 0.12s ease-in-out;
 
   &:focus {
     border: 1px solid $brand_color;
@@ -128,7 +139,7 @@ ul {
   padding: 0;
   text-align: initial;
 }
- .dropdown-toggle:focus {
+.dropdown-toggle:focus {
   outline: 0;
   text-decoration: underline;
 }

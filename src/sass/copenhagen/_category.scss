@@ -15,7 +15,7 @@
 }
 
 .section-tree {
-/*  @include tablet { flex-direction: row; }
+  /*  @include tablet { flex-direction: row; }
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -43,10 +43,11 @@
     margin-bottom: 1rem;
     font-size: $font-size-bigger;
 
-    a { color: $text_color;
-        font-weight: bold;
-        font-size: $font-size-bigger;
-      }
+    a {
+      color: $text_color;
+      font-weight: bold;
+      font-size: $font-size-bigger;
+    }
 
     .icon-lock::before {
       vertical-align: baseline;
@@ -54,15 +55,13 @@
 
     div {
       border-bottom: 1px solid $gray-100;
-      padding-bottom: 2rem;
     }
   }
   &-excerpt {
     font-size: $font-size-base;
     padding: 0;
-    margin: .75rem 0 0;
+    margin: 0.75rem 0 0;
     line-height: 1.3rem;
-    padding-left: 1rem;
     color: $gray-500;
   }
 }

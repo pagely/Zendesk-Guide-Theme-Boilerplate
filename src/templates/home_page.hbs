@@ -12,15 +12,14 @@
       <div class="border-bottom pb-3 h-100">
         <header class="d-flex mb-2 align-items-center">
           <h2 class="mb-0"><a href="{{url}}">{{name}}</a></h2>
-          <small class="ml-auto badge">{{sections.length}}</small>
         </header>
 
         <ul class="list-unstyled p-2 section_list">
-        {{#each sections}}
+          {{#each sections}}
           <li class="mb-1">
             <a href="{{url}}">{{name}}</a>
-        	</li>
-        {{/each}}
+          </li>
+          {{/each}}
         </ul>
       </div>
     </div>
@@ -29,10 +28,23 @@
     <div class="col-12 col-md-4 mb-5">
       <div class="border-bottom pb-3 h-100">
         <header class="d-flex mb-2 align-items-center">
+          <h2 class="mb-0">Quickstart Guide</h2>
+        </header>
+        <p>Getting started with Pagely?</p>
+        <a href="https://pagely.com/quickstart/" class="button-large d-block py-2"
+          style="text-align:center;text-transform:uppercase;">Check out our Quickstart guide</a>
+
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4 mb-5">
+      <div class="border-bottom pb-3 h-100">
+        <header class="d-flex mb-2 align-items-center">
           <h2 class="mb-0">Pre-Sales</h2>
         </header>
         <p>We'd love to answer your Pre-Sales questions.</p>
-        <a href="https://pagely.com/kb/" class="button-large d-block py-2" style="text-align:center;text-transform:uppercase;">View our Pre-Sales KB</a>
+        <a href="https://pagely.com/kb/" class="button-large d-block py-2"
+          style="text-align:center;text-transform:uppercase;">View our Pre-Sales KB</a>
 
       </div>
     </div>
@@ -51,15 +63,15 @@
           <h3>{{t 'promoted_articles'}}</h3>
           <ul class="">
             {{#each promoted_articles}}
-              <li class="">
-                  <a href="{{url}}">
-                    <i data-title="{{t 'promoted'}}" class="ion ion-ios-star-outline green"></i> {{title}}
+            <li class="">
+              <a href="{{url}}">
+                <i data-title="{{t 'promoted'}}" class="ion ion-ios-star-outline green"></i> {{title}}
 
-                    {{#if internal}}
-                      <span class="icon-lock" title="{{t 'internal'}}"></span>
-                    {{/if}}
-                  </a>
-              </li>
+                {{#if internal}}
+                <span class="icon-lock" title="{{t 'internal'}}"></span>
+                {{/if}}
+              </a>
+            </li>
             {{/each}}
           </ul>
         </div>
@@ -68,15 +80,17 @@
 
       <div class="col-12 col-md-4">
         <div class="border p-2 bg-white">
-        {{#if settings.show_recent_activity}}
+          {{#if settings.show_recent_activity}}
           {{recent_activity}}
-        {{/if}}
+          {{/if}}
         </div>
       </div>
 
       <div class="col-12 col-md-4">
         <div class="border bg-white">
-          <a class="twitter-timeline" data-height="600" data-dnt="true" data-theme="light" data-link-color="#1c5673" href="https://twitter.com/pagelysupport?ref_src=twsrc%5Etfw">Tweets by pagelysupport</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <a class="twitter-timeline" data-height="600" data-dnt="true" data-theme="light" data-link-color="#1c5673"
+            href="https://twitter.com/pagelysupport?ref_src=twsrc%5Etfw">Tweets by pagelysupport</a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
       </div>
     </div>

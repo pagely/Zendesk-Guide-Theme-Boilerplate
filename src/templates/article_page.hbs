@@ -11,89 +11,87 @@
   <div class="article-container" id="article-container">
     <div class="row">
       <div class="col-3 col-lg-3">
-        <div class="mb-2 d-none d-lg-block">
-          <h3><i class="ion-ios-folder-outline"></i> Main Topics</h3>
-          <include src="left-nav-partial-sect.hbs"></include>
+        <aside class="mb-2 d-none d-lg-block">
+          <section>
+            <h3><i class="ion-ios-folder-outline"></i> Main Topics</h3>
+            <include src="left-nav-partial-sect.hbs"></include>
+          </section>
           {{#if settings.show_articles_in_section}}
-            <section class="section-articles mt-4 border-top pt-3">
+          <section class="section-articles mt-4 border-top pt-3">
             <h3 class="sidenav-title"><i class="ion-ios-arrow-right"></i> In this section</h3>
             <ul>
               {{#each section.articles}}
-                <li>
-                  <a href="{{url}}" class="{{#is id ../article.id}}current-article{{/is}}">{{title}}</a>
-                </li>
+              <li>
+                <a href="{{url}}" class="{{#is id ../article.id}}current-article{{/is}}">{{title}}</a>
+              </li>
               {{/each}}
             </ul>
             {{#if section.more_articles}}
-              <a href="{{section.url}}" class="article-sidebar-item">{{t 'see_more'}}</a>
+            <a href="{{section.url}}" class="article-sidebar-item">{{t 'see_more'}}</a>
             {{/if}}
-            <div class="mt-3">
+
+          </section>
+          {{/if}}
+          <div class="mt-3">
             {{#if settings.show_related_articles}}
-              {{related_articles}}
-              <script type="text/x-javascript">
+            {{related_articles}}
+            <script type="text/x-javascript">
               $('.related-articles h3').prepend('<i class="ion-ios-arrow-down"></i> ');
               $('.related-articles a').removeAttr("rel");
               </script>
             {{/if}}
-            </div>
-            </section>
-          {{/if}}
-        </div>
+          </div>
+        </aside>
       </div>
       <div class="col-12 col-lg-9">
 
-      <article class="article">
-        <header class="article-header">
-          <div class="p-3 bg-gray-lightest mb-3">
-            <h1 title="{{article.title}}" class="article-title">
-              {{article.title}}
+        <article class="article">
+          <header class="article-header">
+            <div class="p-3 mb-3">
+              <h1 title="{{article.title}}" class="article-title">
+                {{article.title}}
 
-              {{#if article.internal}}
+                {{#if article.internal}}
                 <span class="icon-lock" title="{{t 'internal'}}"></span>
-              {{/if}}
-            </h1>
-          </div>
+                {{/if}}
+              </h1>
+            </div>
 
-          <div class="article-author d-flex flex-wrap">
-            {{#if settings.show_article_author}}
+            <div class="article-author d-flex flex-wrap p-3">
+              {{#if settings.show_article_author}}
               <div class="avatar article-avatar">
                 {{#if article.author.agent}}
-                  <span class="icon-agent"></span>
+                <span class="icon-agent"></span>
                 {{/if}}
-                <img src="{{article.author.avatar_url}}" alt="" class="user-avatar"/>
+                <img src="{{article.author.avatar_url}}" alt="" class="user-avatar" />
               </div>
-            {{/if}}
-            <div class="article-meta">
-              {{#if settings.show_article_author}}
-                {{#link 'user_profile' id=article.author.id}}
-                  {{article.author.name}}
-                {{/link}}
               {{/if}}
+              <div class="article-meta">
+                {{#if settings.show_article_author}}
+                {{#link 'user_profile' id=article.author.id}}
+                {{article.author.name}}
+                {{/link}}
+                {{/if}}
 
-              <ul class="meta-group">
-                {{#is article.created_at article.edited_at}}
+                <ul class="meta-group">
+                  {{#is article.created_at article.edited_at}}
                   <li class="meta-data">{{date article.created_at timeago=true}}</li>
-                {{else}}
+                  {{else}}
                   <li class="meta-data">{{t 'updated'}}</li>
                   <li class="meta-data">{{date article.edited_at timeago=true}}</li>
-                {{/is}}
-              </ul>
+                  {{/is}}
+                </ul>
+              </div>
             </div>
-            <div class="ml-auto">
-            {{#if settings.show_follow_article}}
-              {{subscribe}}
-            {{/if}}
-            </div>
-          </div>
-        </header>
+          </header>
 
-        <section class="article-info">
-          <div class="article-content">
-            <div class="article-body">{{article.body}}</div>
+          <section class="article-info">
+            <div class="article-content">
+              <div class="article-body">{{article.body}}</div>
 
-            <div class="article-attachments">
-              <ul class="attachments">
-                {{#each attachments}}
+              <div class="article-attachments">
+                <ul class="attachments">
+                  {{#each attachments}}
                   <li class="attachment-item">
                     <a href="{{url}}" target="_blank">{{name}}</a>
                     <div class="attachment-meta meta-group">
@@ -101,27 +99,27 @@
                       <a href="{{url}}" target="_blank" class="attachment-meta-item meta-data">Download</a>
                     </div>
                   </li>
-                {{/each}}
-              </ul>
+                  {{/each}}
+                </ul>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <footer>
-          <div class="article-footer d-flex">
-            {{#if settings.show_article_sharing}}
+          <footer>
+            <div class="article-footer d-flex">
+              {{#if settings.show_article_sharing}}
               <div class="article-share">{{share}}</div>
-            {{/if}}
-            {{#if settings.show_article_comments}}
-              {{#if comments}}
-                <a href="#article-comments" class="article-comment-count">
-                  <span class="icon-comments"></span>
-                  {{article.comment_count}}
-                </a>
               {{/if}}
-            {{/if}}
+              {{#if settings.show_article_comments}}
+              {{#if comments}}
+              <a href="#article-comments" class="article-comment-count">
+                <span class="icon-comments"></span>
+                {{article.comment_count}}
+              </a>
+              {{/if}}
+              {{/if}}
 
-            {{#with article}}
+              {{#with article}}
               <div class="article-votes">
                 <span class="article-votes-question">{{t 'was_this_article_helpful'}}</span>
                 <div class="article-votes-controls" role='radiogroup'>
@@ -132,178 +130,70 @@
                   {{vote 'label' class='article-vote-label'}}
                 </small>
               </div>
-            {{/with}}
-          </div>
+              {{/with}}
+            </div>
 
 
-          <div class="article-more-questions">
-            {{request_callout}}
-          </div>
-          <div class="article-return-to-top">
-            <a href="#article-container">{{t 'return_to_top'}}<span class="icon-arrow-up"></span></a>
-          </div>
-        </footer>
-
-
-        {{#if settings.show_article_comments}}
-          <div class="article-comments" id="article-comments">
-            <section class="comments">
-              <header class="comment-overview">
-                <h3 class="comment-heading">
-                  {{t 'comments'}}
-                </h3>
-                <p class="comment-callout">{{t 'comments_count' count=article.comment_count}}</p>
-                {{#if comments}}
-                  <div class="dropdown comment-sorter">
-                    <button class="dropdown-toggle" aria-haspopup="true">
-                      {{t 'sort_by'}}
-                    </button>
-                    <span class="dropdown-menu" role="menu">
-                      {{#each comment_sorters}}
-                        <a aria-selected="{{selected}}" href="{{url}}" role="menuitem">{{name}}</a>
-                      {{/each}}
-                    </span>
-                  </div>
-                {{/if}}
-              </header>
-
-              <ul id="comments" class="comment-list">
-                {{#each comments}}
-                  <li id="{{anchor}}" class="comment">
-                    <div class="comment-wrapper">
-                      <div class="comment-info">
-                        <div class="comment-author">
-                          <div class="avatar comment-avatar">
-                            {{#if author.agent}}
-                              <span class="icon-agent"></span>
-                            {{/if}}
-                            <img src="{{author.avatar_url}}" alt="" class="user-avatar"/>
-                          </div>
-                          <div class="comment-meta">
-                            <span title="{{author.name}}">
-                              {{#link 'user_profile' id=author.id}}
-                                {{author.name}}
-                              {{/link}}
-                            </span>
-
-                            <ul class="meta-group">
-                              {{#if editor}}
-                                <li class="meta-data">{{date edited_at timeago=true}}</li>
-                                <li class="meta-data">{{t 'edited'}}</li>
-                              {{else}}
-                                <li class="meta-data">{{date created_at timeago=true}}</li>
-                              {{/if}}
-                            </ul>
-                          </div>
-                          <div class="comment-labels">
-                            {{#with ticket}}
-                              <a href="{{url}}" target="_zendesk_lotus" class="status-label escalation-badge">
-                                {{t 'request'}}{{id}}
-                              </a>
-                            {{/with}}
-                            {{#if pending}}
-                              <span class="comment-pending status-label status-label-pending">{{t 'pending_approval'}}</span>
-                            {{/if}}
-                          </div>
-                        </div>
-
-                        <section class="comment-body">{{body}}</section>
-                      </div>
-
-                      <div class="comment-actions-container">
-                        <div class="comment-vote vote" role='radiogroup'>
-                          {{vote 'up' role='radio' class='vote-up' selected_class='vote-voted'}}
-                          {{vote 'sum' class='vote-sum'}}
-                          {{vote 'down' role='radio' class='vote-down' selected_class='vote-voted'}}
-                        </div>
-                        <div class="comment-actions actions">
-                          {{actions}}
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                {{/each}}
-              </ul>
-
-              {{pagination}}
-
-              {{#form 'comment' class='comment-form'}}
-                <div class="avatar comment-avatar">
-                  {{user_avatar class='user-avatar'}}
-                </div>
-                <div class="comment-container">
-                  {{wysiwyg 'body'}}
-                  <div class="comment-form-controls">
-                    {{input type='submit'}}
-                  </div>
-                </div>
-              {{/form}}
-
-              <p class="comment-callout">{{comment_callout}}</p>
-            </section>
-          </div>
-        {{/if}}
-      </article>
+            <div class="article-more-questions">
+              {{request_callout}}
+            </div>
+            <div class="article-return-to-top">
+              <a href="#article-container">{{t 'return_to_top'}}<span class="icon-arrow-up"></span></a>
+            </div>
+          </footer>
+        </article>
+      </div>
     </div>
   </div>
-  <section class="article-relatives">
-    {{#if settings.show_recently_viewed_articles}}
-      {{recent_articles}}
-    {{/if}}
-    {{#if settings.show_related_articles}}
-      {{related_articles}}
-    {{/if}}
-  </section>
-</div>
 
-<script>
- $('iframe').wrap("<div class='resp-container'></div>").addClass("resp-iframe").removeAttr('width').removeAttr('frameborder').removeAttr('height');
+  <script>
+    $('iframe').wrap("<div class='resp-container'></div>").addClass("resp-iframe").removeAttr('width').removeAttr('frameborder').removeAttr('height');
 
- // article jsonld
- var metatag = $("link[rel=canonical]");
- var canonical = metatag.attr('href');
+    // article jsonld
+    var metatag = $("link[rel=canonical]");
+    var canonical = metatag.attr('href');
 
- var website_id = "https://support.pagely.com/hc/en-us/schema/#WebSite";
- var article = {
-   "@context":"https://schema.org",
-   "@graph":{
-     "@type":"Article",
-     "@id": canonical+"/schema/#Article",
-     "url": canonical,
-     "isPartOf":{
-       "@id": canonical+"/schema/#WebPage"
-     },
-     "author":{
-       "@type":"Person",
-       "@id":"https://support.pagely.com/schema/person/{{article.author.name}}/#Person",
-       "name":"{{article.author.name}}",
-       "jobTitle":"",
-       "image":"{{article.author.avatar_url}}",
-       "description":""
-     },
-     "publisher":{
-       "@id":"https://pagely.com/schema/#Organization"
-     },
-     "articleBody":{{json_stringify article.body}},
-     "copyrightHolder":{
-       "@id":"https://pagely.com/schema/#Organization"
-     },
-     "discussionUrl":canonical+"/#article-comments",
-     "headline":{{json_stringify article.title}},
-     "datePublished":"{{article.created_at}}",
-     "dateModified":"{{article.edited_at}}",
-     "commentCount":"{{article.comment_count}}",
-     "mainEntityOfPage": canonical+"/schema/#WebPage",
-     "image":"https://pagely.com/wp-content/uploads/2018/02/Pagely-Plg-e1519237068561-400x400.png",
-     "thumbnailUrl":"",
-     "articleSection":"{{section.name}}",
-     "keywords":""
+    var website_id = "https://support.pagely.com/hc/en-us/schema/#WebSite";
+    var article = {
+      "@context": "https://schema.org",
+      "@graph": {
+        "@type": "Article",
+        "@id": canonical + "/schema/#Article",
+        "url": canonical,
+        "isPartOf": {
+          "@id": canonical + "/schema/#WebPage"
+        },
+        "author": {
+          "@type": "Person",
+          "@id": "https://support.pagely.com/schema/person/{{article.author.name}}/#Person",
+          "name": "{{article.author.name}}",
+          "jobTitle": "",
+          "image": "{{article.author.avatar_url}}",
+          "description": ""
+        },
+        "publisher": {
+          "@id": "https://pagely.com/schema/#Organization"
+        },
+        "articleBody": {{ json_stringify article.body }},
+    "copyrightHolder": {
+      "@id": "https://pagely.com/schema/#Organization"
+    },
+    "discussionUrl": canonical + "/#article-comments",
+      "headline": { { json_stringify article.title } },
+    "datePublished": "{{article.created_at}}",
+      "dateModified": "{{article.edited_at}}",
+        "commentCount": "{{article.comment_count}}",
+          "mainEntityOfPage": canonical + "/schema/#WebPage",
+            "image": "https://pagely.com/wp-content/uploads/2018/02/Pagely-Plg-e1519237068561-400x400.png",
+              "thumbnailUrl": "",
+                "articleSection": "{{section.name}}",
+                  "keywords": ""
    }
  };
 
- var articleJSON = JSON.stringify(article);
- var el = document.createElement('script');
- el.type = 'application/ld+json';
- el.text = articleJSON;
- document.querySelector('body').appendChild(el);
-</script>
+    var articleJSON = JSON.stringify(article);
+    var el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.text = articleJSON;
+    document.querySelector('body').appendChild(el);
+  </script>
