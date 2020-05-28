@@ -40,6 +40,8 @@ function redirectArticles() {
     redirect["218441547"] = 360007390832;
     redirect["201162260"] = 115003871111;
 
+    external_redirect["360028070912"] = "https://pagely.com/quickstart/";
+
     //Replace YOURSUBDOMAIN with the location of your help center. For example, “support.company.com”
     //Redirects if needed -> Doesn’t redirect if not.
     if (currentId in redirect) {
